@@ -5,8 +5,10 @@ class Solution:
         indices  = []
         
         for i in range(0, len(nums)):
-          
+            targetIndex = 0
             if nums[i] == target:
-                indices += [i]
+                
+                targetIndex = i
+                indices += [targetIndex]
         
         return indices
