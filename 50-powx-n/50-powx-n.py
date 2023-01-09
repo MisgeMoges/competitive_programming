@@ -7,14 +7,9 @@ class Solution:
             if n == 1:
                 return x
             
-            output = self.myPow(x, n//2)
-            output *= output
-            
-            if n%2 ==  1:
-                output *= x
-            return output
-        if n < 0:
-            n = -n
-            x = 1/x
-        return inner(x, n)
+            output = self.myPow(x*x, n//2)
+            return x*output if n%2 else output
+        
+        output =  inner(x, abs(n))
+        return output if n >= 0 else 1/output
     
