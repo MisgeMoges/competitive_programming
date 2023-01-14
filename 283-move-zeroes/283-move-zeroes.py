@@ -11,7 +11,6 @@ class Solution:
                 right +=1 
                 left += 1
             elif nums[left] == 0 and nums[right] == 0:
-                nums[left], nums[right] = nums[right], nums[left]
                 right +=1 
                 
             else:
