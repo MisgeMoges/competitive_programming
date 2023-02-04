@@ -14,7 +14,7 @@ class MyHashSet:
         
 
     def contains(self, key: int) -> bool:
-        return True if key in self.list else False
+        return key in self.list
         
 
 
