@@ -1,3 +1,9 @@
-n,m = map(int, input().split())
-total = int(m*n / 2)
-print(total)
+def maxDominos(size):
+    values = size.split(" ")
+    max_dom = (int(values[0]) * int(values[1]))//2
+    return max_dom
+
+
+size = input()
+result = maxDominos(size)
+print(result)
