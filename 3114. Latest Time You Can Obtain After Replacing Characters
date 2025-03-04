@@ -1,0 +1,35 @@
+class Solution:
+    def findLatestTime(self, s: str) -> str:
+        s1, s2 = s.split(':')
+        s1, s2 = list(s1), list(s2)
+        if s1[0] == '?':
+            if s1[1] == '?':
+                s1[1] = "1"
+                s1[0] = "1"
+            elif s1[1] == "1" or s1[1] == "0":
+                s1[0] = "1"
+            else:
+                s1[0] = "0"
+        if s1[1] == '?':
+            if s1[0] == "1":
+                s1[1] = "1"
+            else:
+                s1[1] = "9"
+        if s2[0] == '?':
+            s2[0] = "5"
+        if s2[1] == '?':
+            s2[1] = "9"
+        s1 = "".join(s1)
+        s2 = "".join(s2)
+        return s1+":"+s2
+        # s1, s2 = s.split(":")
+
+        # if s1[0] == "?" and s1[1] == "?":
+        #     s1 = "11"
+        # elif s1[0] == "?":
+        #     s1 = ("1" if s1[1] in "01" else "0") + s1[1]
+        # elif s1[1] == '?':
+        #     s1 = s1[0] + ("1" if s1[0] == "1" else "9")
+        # s2 = s2.replace("?", "5", 1) if s2[0] == "?" else s2
+        # s2 = s2.replace("?", "9", 1) if s2[1] == "?" else s2
+        # return f"{s1}:{s2}"
