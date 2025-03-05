@@ -1,0 +1,10 @@
+class Solution:
+    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+        xor_value = 0
+        nums_set = set()
+        for num in nums:
+            if num in nums_set:
+                xor_value ^= num
+            nums_set.add(num)
+        return xor_value
+        
