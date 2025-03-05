@@ -1,0 +1,13 @@
+class Solution:
+    def minimumAverage(self, nums: List[int]) -> float:
+        average = float('inf')
+
+        nums.sort()
+        left, right = 0, len(nums)-1
+
+        while left < right:
+            average = min(average, (nums[right]+nums[left])/2)
+            left += 1
+            right -= 1
+        return average
+        
