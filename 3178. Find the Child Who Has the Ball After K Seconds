@@ -1,0 +1,9 @@
+class Solution:
+    def numberOfChild(self, n: int, k: int) -> int:
+        cycle = k%(2*(n-1))
+
+        if cycle < (n-1):
+            return cycle
+        else:
+            return (2*(n-1))-cycle
+        
