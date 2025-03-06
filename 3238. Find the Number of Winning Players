@@ -1,0 +1,14 @@
+class Solution:
+    def winningPlayerCount(self, n: int, pick: List[List[int]]) -> int:
+        players_color = [defaultdict(int) for _ in range(n)]
+
+        for player, color in pick:
+            players_color[player][color] += 1
+        winners = 0
+        for i in range(n):
+            max_color_count = max(players_color[i].values(), default=0)
+
+            if max_color_count > i:
+                winners += 1
+        return winners
+        
