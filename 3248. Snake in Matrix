@@ -1,0 +1,16 @@
+class Solution:
+    def finalPositionOfSnake(self, n: int, commands: List[str]) -> int:
+       
+        row, col = 0, 0
+
+        for com in commands:
+            if com == "RIGHT":
+                col += 1
+            elif com == "DOWN":
+                row += 1    
+            elif com == "UP":
+                row -= 1  
+            else:
+                col -= 1
+                
+        return (row*n)+col
