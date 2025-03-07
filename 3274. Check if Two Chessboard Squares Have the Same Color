@@ -1,0 +1,14 @@
+class Solution:
+    def checkTwoChessboards(self, coordinate1: str, coordinate2: str) -> bool:
+        cord1 = ord(coordinate1[0]) - ord('a') + 1 + int(coordinate1[1])
+        cord2 = ord(coordinate2[0]) - ord('a') + 1 + int(coordinate2[1])
+        if cord1 % 2 != cord2%2:
+            return False
+        else:
+            return True
+        # def getColor(coordinate):
+        #     col = ord(coordinate[0]) - ord('a') + 1  # Convert 'a'-'h' to 1-8
+        #     row = int(coordinate[1])  # Convert '1'-'8' to integer
+        #     return (col + row) % 2  # 0 for black, 1 for white
+    
+        # return getColor(coordinate1) == getColor(coordinate2)
