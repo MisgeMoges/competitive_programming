@@ -1,0 +1,21 @@
+class Solution:
+    def getFinalState(self, nums: List[int], k: int, multiplier: int) -> List[int]:
+        # for _ in range(k):
+        #     min_num = min(nums)
+
+        #     index = nums.index(min_num)
+        #     nums[index] = min_num*multiplier
+        # return nums
+        heap = []
+
+        for i, num in enumerate(nums):
+            heapq.heappush(heap, (num, i))
+        
+        for _ in range(k):
+            val, idx = heapq.heappop(heap)
+
+            new_val = val*multiplier
+            nums[idx] = new_val
+
+            heapq.heappush(heap, (new_val, idx))
+        return nums
