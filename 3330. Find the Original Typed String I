@@ -1,0 +1,10 @@
+class Solution:
+    def possibleStringCount(self, word: str) -> int:
+        count = 1
+        left = 0
+        for right in range(1, len(word)):
+            if word[left] != word[right]:
+                count += right-left-1
+                left = right
+        count += len(word) - left - 1
+        return count
