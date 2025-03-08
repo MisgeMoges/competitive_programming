@@ -1,0 +1,9 @@
+class Solution:
+    def minElement(self, nums: List[int]) -> int:
+        # given nums array
+
+        min_sum = float('inf')
+        for num in nums:
+            digit_sum = sum(int(digit) for digit in str(num))
+            min_sum = min(digit_sum, min_sum)
+        return min_sum
