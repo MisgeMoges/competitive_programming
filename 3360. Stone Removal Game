@@ -1,0 +1,12 @@
+class Solution:
+    def canAliceWin(self, n: int) -> bool:
+        if n < 10:
+            return False
+        stones = n
+        removes = 10
+        index = 0
+        while stones >= removes:
+            stones -= removes
+            removes -= 1
+            index += 1
+        return (index-1) % 2 == 0
