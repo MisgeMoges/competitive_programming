@@ -1,0 +1,9 @@
+class Solution:
+    def smallestNumber(self, n: int) -> int:
+        while True:
+            binary = bin(n)[2:]
+            count_sets = binary.count("1")
+            if len(binary) == count_sets:
+                return n
+            n += 1
+            
