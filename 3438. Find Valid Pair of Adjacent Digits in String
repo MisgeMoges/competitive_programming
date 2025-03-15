@@ -1,0 +1,13 @@
+class Solution:
+    def findValidPair(self, s: str) -> str:
+        # I will iterate in all the numbers
+        # check with the  next number and check the number of count in s is same with its value 
+        # 
+        counter = Counter(s)
+        for i in range(len(s)-1):
+            num1 = int(s[i])  
+            num2 = int(s[i+1])
+            if s[i] != s[i+1] and counter[s[i]] == num1 and counter[s[i+1]] == num2:
+                return s[i]+s[i+1]
+        return ""
+        
