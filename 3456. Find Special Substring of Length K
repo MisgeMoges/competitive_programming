@@ -1,0 +1,12 @@
+class Solution:
+    def hasSpecialSubstring(self, s: str, k: int) -> bool:
+        # first I will check for the size of s compare with k
+        # iterate over each character and take substring starting from current index to i + k
+        # chek to the length of substring if it is one
+        if len(s) < k:
+            return False
+        for i in range(len(s)-k+1):
+            if (i == 0 or s[i-1] != s[i]) and len(set(s[i:i+k])) == 1 and (i+k == len(s) or s[i+k] != s[i]):
+                return True
+    
+        return False
