@@ -1,0 +1,19 @@
+class Solution:
+    def largestInteger(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        freq = Counter(nums)
+
+        if k == 1:
+            return max([num for num in nums if freq[num] == 1], default=-1)
+        if k == n:
+            return max(nums)
+
+        first, last = nums[0], nums[-1]
+
+        if freq[first] == 1 and freq[last] == 1:
+            return max(first, last)
+        if freq[first] == 1:
+            return first
+        if freq[last] == 1:
+            return last
+        return -1
