@@ -1,0 +1,10 @@
+class Solution:
+    def findLongestChain(self, pairs: List[List[int]]) -> int:
+        pairs.sort(key=lambda x: x[1])
+        count, end = 0, float('-inf')
+
+        for start, end_time in pairs:
+            if start > end:
+                count += 1
+                end = end_time
+        return count
