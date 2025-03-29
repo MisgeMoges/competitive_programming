@@ -1,0 +1,27 @@
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def nodesBetweenCriticalPoints(self, head: ListNode) -> list[int]:
+        prev, curr = head, head.next
+        index = 1
+        first_cp, last_cp = -1, -1
+        min_distance = float('inf')
+        critical_points = []
+        while curr and curr.next:
+            if (curr.val > prev.val and curr.val > curr.next.val) or (curr.val < prev.val and curr.val < curr.next.val):
+                critical_points.append(index)
+                if len(critical_points) > 1:
+                    min_distance = min(min_distance, index - critical_points[-2])
+                if first_cp == -1:
+                    first_cp = index
+                last_cp = index
+
+            prev, curr = curr, curr.next
+            index += 1
+        if len(critical_points) < 2:
+            return [-1, -1]
+        max_distance = last_cp - first_cp
+        return [min_distance, max_distance]
