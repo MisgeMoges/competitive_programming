@@ -1,0 +1,24 @@
+class Solution:
+    def tictactoe(self, moves):
+        rows = [0] * 3
+        cols = [0] * 3
+        diag = 0
+        anti_diag = 0
+        
+        player = 1
+
+        for i, (row, col) in enumerate(moves):
+            curr = 1 if i % 2 == 0 else -1  
+            
+            rows[row] += curr
+            cols[col] += curr
+
+            if row == col:
+                diag += curr
+            if row + col == 2:
+                anti_diag += curr
+            
+            if abs(rows[row]) == 3 or abs(cols[col]) == 3 or abs(diag) == 3 or abs(anti_diag) == 3:
+                return "A" if curr == 1 else "B"
+
+        return "Draw" if len(moves) == 9 else "Pending"
